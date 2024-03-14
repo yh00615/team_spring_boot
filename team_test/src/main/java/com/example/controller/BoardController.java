@@ -10,8 +10,10 @@ public class BoardController {
 	
 	@GetMapping("/")
 	public String home(Model model) {
-		
+	
+		model.addAttribute("s3Path", s3Path);
 		return "home";
 	}
+	
 	
 }
