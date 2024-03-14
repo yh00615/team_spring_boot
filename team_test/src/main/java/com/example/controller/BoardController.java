@@ -1,5 +1,9 @@
 package com.example.controller;
 
-public class BoardController {
+import org.springframework.stereotype.Controller;
 
+@Controller
+public class BoardController {
+	String s3Path = System.getenv("S3_PATH");
+	
 }
