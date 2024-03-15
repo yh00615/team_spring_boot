@@ -3,6 +3,7 @@ package com.example.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.client.RestTemplate;
 
 import jakarta.servlet.http.HttpSession;
@@ -10,10 +11,10 @@ import jakarta.servlet.http.HttpSession;
 @Controller
 public class BoardController {
 	String s3Path = System.getenv("S3_PATH");
-	
+
 	@GetMapping("/")
 	public String home(Model model) {
-	
+
 		model.addAttribute("s3Path", s3Path);
 		return "home";
 	}
@@ -32,8 +33,12 @@ public class BoardController {
 		}
 		model.addAttribute("availabilityZone", availabilityZone);
 	}
-	
-	
+
+	@GetMapping("/boardlist")
+	public String boardlist(@RequestParam(value = "page", required = false, defaultValue = "1") int page, Model model) {
+		return "boardlist";
+	}
+
 	@GetMapping("/boardwrite")
 	public String boardWriteForm(HttpSession session, Model model) {
 		return "boardwrite";
