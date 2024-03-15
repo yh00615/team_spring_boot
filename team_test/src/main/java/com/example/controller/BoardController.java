@@ -43,4 +43,9 @@ public class BoardController {
 	public String boardWriteForm(HttpSession session, Model model) {
 		return "boardwrite";
 	}
+	
+	
+	public void test() {
+		System.out.println("test()");
+	}
 }
