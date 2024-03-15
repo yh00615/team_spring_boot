@@ -5,6 +5,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.client.RestTemplate;
 
+import jakarta.servlet.http.HttpSession;
+
 @Controller
 public class BoardController {
 	String s3Path = System.getenv("S3_PATH");
@@ -31,4 +33,9 @@ public class BoardController {
 		model.addAttribute("availabilityZone", availabilityZone);
 	}
 	
+	
+	@GetMapping("/boardwrite")
+	public String boardWriteForm(HttpSession session, Model model) {
+		return "boardwrite";
+	}
 }
