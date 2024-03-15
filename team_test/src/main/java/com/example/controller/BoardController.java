@@ -41,11 +41,8 @@ public class BoardController {
 
 	@GetMapping("/boardwrite")
 	public String boardWriteForm(HttpSession session, Model model) {
+		System.out.println("boardwrite");
 		return "boardwrite";
 	}
 	
-	
-	public void test() {
-		System.out.println("test()");
-	}
 }
